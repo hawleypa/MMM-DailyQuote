@@ -1,4 +1,4 @@
-Module.register("MMM-Template", {
+Module.register("MMM-DailyQuote", {
 
   defaults: {
     exampleContent: ""
@@ -8,7 +8,7 @@ Module.register("MMM-Template", {
    * Apply the default styles.
    */
   getStyles() {
-    return ["template.css"]
+    return ["daily-quote.css"]
   },
 
   /**
@@ -18,7 +18,7 @@ Module.register("MMM-Template", {
     this.templateContent = this.config.exampleContent
 
     // set timeout for next random text
-    setInterval(() => this.addRandomText(), 3000)
+    setInterval(() => this.updateQuote(), 3000)
   },
 
   /**
@@ -29,7 +29,7 @@ Module.register("MMM-Template", {
    * @param {any} payload - The payload data`returned by the node helper.
    */
   socketNotificationReceived: function (notification, payload) {
-    if (notification === "EXAMPLE_NOTIFICATION") {
+    if (notification === "RECEIVED_QUOTE") {
       this.templateContent = `${this.config.exampleContent} ${payload.text}`
       this.updateDom()
     }
@@ -41,12 +41,13 @@ Module.register("MMM-Template", {
   getDom() {
     const wrapper = document.createElement("div")
     wrapper.innerHTML = `<b>Title</b><br />${this.templateContent}`
-
+<script type="text/javascript" src="https://www.brainyquote.com/link/quotebr.js"></script>
+<small><i><a href="/quote_of_the_day" target="_blank" rel="nofollow">more Quotes</a></i></small>
     return wrapper
   },
 
   addRandomText() {
-    this.sendSocketNotification("GET_RANDOM_TEXT", { amountCharacters: 15 })
+    this.sendSocketNotification("GET_QUOTE", { amountCharacters: 5 })
   },
 
   /**
@@ -56,7 +57,7 @@ Module.register("MMM-Template", {
    * @param {number} payload the payload type.
    */
   notificationReceived(notification, payload) {
-    if (notification === "TEMPLATE_RANDOM_TEXT") {
+    if (notification === "RECEIVED_QUOTE") {
       this.templateContent = `${this.config.exampleContent} ${payload}`
       this.updateDom()
     }
