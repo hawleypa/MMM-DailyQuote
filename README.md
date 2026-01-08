@@ -1,15 +1,15 @@
-# MMM-Template
+# MMM-DailyQuote
 Use this template for creating new MagicMirror² modules.
 
-See the [wiki page](https://github.com/Dennis-Rosenbaum/MMM-Template/wiki) for an in depth overview of how to get started.
+See the [wiki page](https://github.com/Dennis-Rosenbaum/MMM-Template/wiki) for an in-depth overview of how to get started.
 
-# MMM-Template
+# MMM-DailyQuote
 
-*MMM-Template* is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that displays ... [Module description]
+*MMM-DailyQuote* is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that displays a daily quote
 
 ## Screenshot
 
-![Example of MMM-Template](./example_1.png)
+![Example of MMM-DailyQuote](./example_1.png)
 
 ## Installation
 
@@ -41,7 +41,7 @@ Minimal configuration to use the module:
 
 ```js
     {
-        module: 'MMM-Template',
+        module: 'MMM-DailyQuote',
         position: 'lower_third'
     },
 ```
@@ -50,10 +50,10 @@ Configuration with all options:
 
 ```js
     {
-        module: 'MMM-Template',
+        module: 'MMM-DailyQuote',
         position: 'lower_third',
         config: {
-            exampleContent: 'Welcome world'
+            exampleContent: 'Todays Quote Reality leaves a lot to the imagination. John Lennon more Quotes'
         }
     },
 ```
@@ -68,7 +68,7 @@ Option|Possible values|Default|Description
 
 Notification|Description
 ------|-----------
-`TEMPLATE_RANDOM_TEXT`|Payload must contain the text that needs to be shown on this module
+`RETRIEVED QUOTE`|Payload must contain the text that needs to be shown on this module
 
 ## Developer commands
 
