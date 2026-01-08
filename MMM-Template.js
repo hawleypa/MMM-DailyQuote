@@ -30,7 +30,8 @@ Module.register("MMM-DailyQuote", {
    */
   socketNotificationReceived: function (notification, payload) {
     if (notification === "RECEIVED_QUOTE") {
-      this.templateContent = `${this.config.exampleContent} ${payload.text}`
+      this.templateContent = '<script type="text/javascript" src="https://www.brainyquote.com/link/quotebr.js"></script>'
+      this.templateContent = this.templateContent + '<br><small><i><a href="/quote_of_the_day" target="_blank" rel="nofollow">more Quotes</a></i></small>'
       this.updateDom()
     }
   },
@@ -40,11 +41,10 @@ Module.register("MMM-DailyQuote", {
    */
   getDom() {
     const wrapper = document.createElement("div")
+    wrapper.id = 'content' 
     this.templateContent = '<script type="text/javascript" src="https://www.brainyquote.com/link/quotebr.js"></script>'
-/**<small><i><a href="/quote_of_the_day" target="_blank" rel="nofollow">more Quotes</a></i></small> */
-    
-    wrapper.innerHTML = ${this.templateContent}`
-
+    this.templateContent = this.templateContent + '<br><small><i><a href="/quote_of_the_day" target="_blank" rel="nofollow">more Quotes</a></i></small>'
+    wrapper.innerHTML = '${this.templateContent}'
     return wrapper
   },
 
@@ -60,7 +60,8 @@ Module.register("MMM-DailyQuote", {
    */
   notificationReceived(notification, payload) {
     if (notification === "RECEIVED_QUOTE") {
-      this.templateContent = `${this.config.exampleContent} ${payload}`
+      this.templateContent = '<script type="text/javascript" src="https://www.brainyquote.com/link/quotebr.js"></script>'
+      this.templateContent = this.templateContent + '<br><small><i><a href="/quote_of_the_day" target="_blank" rel="nofollow">more Quotes</a></i></small>'
       this.updateDom()
     }
   }
