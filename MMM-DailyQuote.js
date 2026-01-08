@@ -1,7 +1,7 @@
 Module.register("MMM-DailyQuote", {
 
   defaults: {
-    exampleContent: ""
+    exampleContent: "Quote of the Day"
   },
 
   /**
