@@ -46,7 +46,7 @@ Module.register("MMM-DailyQuote", {
     return wrapper
   },
 
-  addRandomText() {
+  updateQuote() {
     this.sendSocketNotification("GET_QUOTE", { amountCharacters: 5 })
   },
 
